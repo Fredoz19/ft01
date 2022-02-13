@@ -1,0 +1,14 @@
+[Unit]
+Description=Fantom Go-Opera Client
+StartLimitIntervalSec=0
+
+[Service]
+Type=simple
+Restart=always
+RestartSec=5
+User=opera
+WorkingDirectory=/home/opera/go-opera/build
+ExecStart=/home/opera/go-opera/build/opera --genesis mainnet.g --http --http.addr 0.0.0.0 --http.corsdomain '*' --ws --ws.addr 0.0.0.0 --ws.origins '*' --http.api ftm,eth,debug,admin,web3,personal,net,txpool,sfc --ws.api ftm,eth,debug,admin,web3,personal,net,txpool,sfc
+
+[Install]
+WantedBy=multi-user.target
